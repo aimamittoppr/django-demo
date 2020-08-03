@@ -1,0 +1,28 @@
+<h1>Todo List</h1>
+<table style="padding: 10px; border: 2px; ">
+    <thead>
+        <th>your Todo</th>
+        <th>Target date</th>
+    </thead>
+    <tbody>
+        {% for todo in all_todos %}
+        <tr>
+            <td>{{todo.todo}}</td>
+            <td>{{todo.date_target}}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+
+<form action="/todo/create/" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="todo" placeholder="Add to your todo">
+    <br>
+    <input type="date" name="target_date">
+    <br>
+    <input type="submit" value="Submit">
+</form>
